@@ -2,8 +2,9 @@ body {
   background-color: yellow;
 }
 
-body .wraper {
+body div {
   background-color: red;
-  font-size: 30px;
+  font-size: 60px;
   text-align: center;
 }
+/*# sourceMappingURL=App.css.map */
