@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.min.css';
+class App extends React.Component {
+  state = { 
+    questions: [{
+      id: 1,
+      question: 'co to jest ?',
+      answer1: 'statek',
+      answer2: 'samochód',
+      corectAnswer: 'czołg'
+    },
+    {
+      id: 23,
+      question: 'co to jest ?',
+      answer1: 'statek',
+      answer2: 'samochód',
+      corectAnswer: 'helikopter'
+    }]
+   }
+  render() { 
+    const copyQuestions = [...this.state.questions];
+    return ( 
+      <div className='wraper'>{copyQuestions[0].answer1}</div>
+     );
+  }
 }
-
+ 
 export default App;
