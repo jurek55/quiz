@@ -2,7 +2,7 @@ import React from 'react';
 const Header = () => {
    
     return ( 
-        <h1>quiz - fizyka niezbyt zaawansowana</h1>
+        <h3>quiz - fizyka niezbyt zaawansowana</h3>
      );
 }
  
