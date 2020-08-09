@@ -14,6 +14,16 @@ body div.header {
   background: yellow;
 }
 
+body div.header div.corectCounter {
+  /*width: 20%*/
+  min-width: 250px;
+  /*position: fixed*/
+  background: yellow;
+  /*left: 50px*/
+  text-align: center;
+  font-size: .9em;
+}
+
 body div.wraper {
   background: grey;
   width: 100%;
@@ -44,16 +54,6 @@ body div.wraper div.quiz p.answer {
 
 body div.wraper div.quiz input {
   background: red;
-}
-
-body div.wraper div.corectCounter {
-  width: 20%;
-  min-width: 250px;
-  position: fixed;
-  background: yellow;
-  left: 50px;
-  text-align: center;
-  font-size: 1.5em;
 }
 
 body div.wraper div.uncorectCounter {

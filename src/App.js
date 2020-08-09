@@ -61,9 +61,11 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
-        <div className="header"><Header/></div>
-      <div className="wraper">
+        <div className="header"><Header/>
         <div className='corectCounter'>{`odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>
+        </div> 
+      <div className="wraper">
+      <div className="header"></div>
         <div className='quiz'>{quiz}</div>
       {/* <div className='uncorectCounter'>{this.state.uncorectCounter}</div> */}
       </div>
