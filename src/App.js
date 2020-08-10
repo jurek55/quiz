@@ -33,6 +33,7 @@ class App extends React.Component {
   xhr.send();
   console.log(this.state.questions);
 }
+
   handleCheck = (event) =>{
     
     if (event.target.value===this.state.questions[event.target.name].corectAns){
@@ -52,7 +53,7 @@ class App extends React.Component {
       };
     };   
   render() { 
-    let copyQuestions = this.state.questions;
+    const copyQuestions = this.state.questions;
     console.log(copyQuestions);
    
     const quiz = copyQuestions.map((item) => {
