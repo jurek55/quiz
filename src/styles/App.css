@@ -4,9 +4,48 @@ body {
   padding: 0;
 }
 
+body div.header {
+  text-align: center;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: yellow;
+}
+
+body div.header div.corectCounter {
+  /*width: 20%*/
+  min-width: 250px;
+  /*position: fixed*/
+  background: yellow;
+  /*left: 50px*/
+  text-align: center;
+  font-size: .9em;
+}
+
+body div.header div.menu {
+  position: absolute;
+  right: 30px;
+}
+
+body div.header div.menu button {
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+}
+
+body div.header div.menu button:hover {
+  cursor: pointer;
+}
+
 body div.wraper {
+  padding: 10px 0;
   background: grey;
-  width: 60%;
+  width: 100%;
+  margin-top: 80px;
+  background-image: url("../img/tlo.jpg");
+  background-position: center;
 }
 
 body div.wraper div.quiz {
@@ -33,16 +72,6 @@ body div.wraper div.quiz p.answer {
 
 body div.wraper div.quiz input {
   background: red;
-}
-
-body div.wraper div.corectCounter {
-  width: 20%;
-  min-width: 250px;
-  position: fixed;
-  background: yellow;
-  left: 100px;
-  text-align: center;
-  font-size: 1.5em;
 }
 
 body div.wraper div.uncorectCounter {

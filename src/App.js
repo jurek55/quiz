@@ -1,6 +1,8 @@
 import React from 'react';
-import './App.min.css';
+import './styles/App.min.css';
 import Header from './components/Header';
+import Menu from './components/Menu';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -10,30 +12,36 @@ class App extends React.Component {
       corectCounter: 0,
       uncorectCounter: 0,
       answerCounter: 0,
+      subject: '',
+      title: ''
      
      }
     }
-
-  componentDidMount() {
-    console.log('test');
+    
+  GetData = ()=>{
+    
      const xhr = new XMLHttpRequest();
-     xhr.open('GET', 'https://api.jkunicki.pl/quiz/', true);
+     xhr.open('POST', 'https://api.jkunicki.pl/quiz/', true);
+     xhr.send(JSON.stringify(this.state.subject));
+     console.log(JSON.stringify(this.state.subject))
      xhr.onload=()=>{
       console.log(xhr.status);
      if (xhr.status === 200){
       const questions = JSON.parse(xhr.response);
-      console.log(questions[1]);
+      /* console.log(questions[1]); */
 
       this.setState({
-        questions
+        questions,
+        subject: ''
+        
       })
     }
     
   }
-  xhr.send();
+  
   console.log(this.state.questions);
 }
-
+  
   handleCheck = (event) =>{
     
     if (event.target.value===this.state.questions[event.target.name].corectAns){
@@ -52,22 +60,33 @@ class App extends React.Component {
         console.log(event.target.name)
       };
     };   
+
+  handleButtonMenu = (event) =>{
+    const press=event.target.id;
+    this.setState({
+      subject: press,
+      title: press
+    })
+  }
   render() { 
     const copyQuestions = this.state.questions;
-    console.log(copyQuestions);
-   
+   /*  console.log(copyQuestions); */
+   console.log(this.state.subject);
     const quiz = copyQuestions.map((item) => {
       return (<div key={item.id}><p className='question'>{`${item.id+1}. ${item.pytanie}`}</p><p className='answer'><input type='radio' name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input><label>{item.answers[0]}</label></p><p className='answer'><input type='radio' name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input><label>{item.answers[1]}</label></p><p className='answer'><input type='radio'  name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input><label>{item.answers[2]}</label></p></div>) 
-    })
+    });
+    const subject = this.state.subject;
     
     return ( 
       <React.Fragment>
-        <div className="header"><Header/>
+        <div className="header"><Header title={this.state.title}/>
+        <Menu subject={this.handleButtonMenu}/>
+        {subject && this.GetData()}
         <div className='corectCounter'>{`odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>
         </div> 
       <div className="wraper">
       <div className="header"></div>
-        <div className='quiz'>{quiz}</div>
+      <div className='quiz'>{quiz}</div>
       {/* <div className='uncorectCounter'>{this.state.uncorectCounter}</div> */}
       </div>
       </React.Fragment>

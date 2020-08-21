@@ -1,8 +1,10 @@
 import React from 'react';
-const Header = () => {
-   
+const Header = (props) => {
+   console.log(props);
     return ( 
-        <h3>quiz - fizyka niezbyt zaawansowana</h3>
+        <React.Fragment>
+            {props.title ? <h3>{`quiz ${props.title} `}</h3> : <h3>wybierz dziedzinę</h3>}
+        </React.Fragment>
      );
 }
  
