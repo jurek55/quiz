@@ -71,7 +71,14 @@ class App extends React.Component {
       subject: press
     })
   }
+  handleOnMouse=()=>{
+    if (this.state.title==='żeglarstwo')
+       alert('Quiz zawiera pytania z bazy na egzamin JSM (rok 2018). Baza jest w trakcie stopniowego uzupełniania. Nie gwarantuję, że wskazane poprawne odpowiedzi dokładnie odzwierciedlają klucz egzaminacyjny, zostały one zaznaczone podczas przygotowania do zdanego egzaminu');
+      else if (this.state.title==='fizyka')
+      alert('Quiz zawiera zestaw pytań z fizyki ogólnej o różnym stopniu trudności. Autorem pytań jest Jerzy Kunicki');
+        else alert('Quiz zawiera zestaw pytań z historii. Mam nadzieję, że baza pytań będzie stopniowo uzupełniana. Autorką pytań jest Barbara Felicka')
 
+  }
   render() { 
     const copyQuestions = this.state.questions;
    /*  console.log(copyQuestions); */
@@ -83,7 +90,7 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
-        <div className="header"><Header title={this.state.title}/>
+        <div className="header"><Header title={this.state.title} message = {this.handleOnMouse}/>
         <Menu subject={this.handleButtonMenu}/>
         {subject && this.GetData()}
         <div className='corectCounter'>{`odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>
