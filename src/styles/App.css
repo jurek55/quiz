@@ -19,11 +19,6 @@ body div.header p {
   margin: 0 auto;
 }
 
-body div.header p:hover {
-  cursor: pointer;
-  color: white;
-}
-
 body div.header div.corectCounter {
   /*width: 20%*/
   min-width: 250px;
@@ -98,12 +93,13 @@ body div.wraper div.description section {
   height: 50%;
   background-color: white;
   margin: 150px auto;
-  opacity: .8;
+  opacity: .7;
 }
 
 body div.wraper div.description section h2 {
   width: 100px;
   height: 55px;
+  transition: .3s;
 }
 
 body div.wraper div.description section h2:first-letter {
