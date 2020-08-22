@@ -62,12 +62,16 @@ class App extends React.Component {
     };   
 
   handleButtonMenu = (event) =>{
-    const press=event.target.id;
+    let press=event.target.id;
     this.setState({
-      subject: press,
       title: press
     })
+    if (press==='żeglarstwo') press='sailing';
+    this.setState({
+      subject: press
+    })
   }
+
   render() { 
     const copyQuestions = this.state.questions;
    /*  console.log(copyQuestions); */

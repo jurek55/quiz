@@ -50,7 +50,7 @@ body div.wraper {
 
 body div.wraper div.quiz {
   margin: 10px auto;
-  background: lightgrey;
+  background-color: lightgrey;
   text-align: center;
   font-size: 1em;
   padding: 10px;
