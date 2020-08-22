@@ -11,14 +11,14 @@ body div.header {
   top: 0;
   left: 0;
   width: 100%;
-  background: yellow;
+  background: #CCCCFF;
 }
 
 body div.header div.corectCounter {
   /*width: 20%*/
   min-width: 250px;
   /*position: fixed*/
-  background: yellow;
+  background: lightblue;
   /*left: 50px*/
   text-align: center;
   font-size: .9em;
@@ -50,7 +50,7 @@ body div.wraper {
 
 body div.wraper div.quiz {
   margin: 10px auto;
-  background: red;
+  background: lightgrey;
   text-align: center;
   font-size: 1em;
   padding: 10px;
@@ -60,7 +60,6 @@ body div.wraper div.quiz {
 body div.wraper div.quiz p.question {
   font-size: 1em;
   text-align: left;
-  background: green;
   text-transform: uppercase;
   font-weight: bold;
 }
