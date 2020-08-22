@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/App.min.css';
 import Header from './components/Header';
 import Menu from './components/Menu';
+import Description from './components/Description';
 
 
 class App extends React.Component {
@@ -23,12 +24,10 @@ class App extends React.Component {
      const xhr = new XMLHttpRequest();
      xhr.open('POST', 'https://api.jkunicki.pl/quiz/', true);
      xhr.send(JSON.stringify(this.state.subject));
-     console.log(JSON.stringify(this.state.subject))
      xhr.onload=()=>{
       console.log(xhr.status);
      if (xhr.status === 200){
       const questions = JSON.parse(xhr.response);
-      /* console.log(questions[1]); */
 
       this.setState({
         questions,
@@ -39,7 +38,6 @@ class App extends React.Component {
     
   }
   
-  console.log(this.state.questions);
 }
   
   handleCheck = (event) =>{
@@ -57,7 +55,6 @@ class App extends React.Component {
         answerCounter: this.state.answerCounter+1
         
         })
-        console.log(event.target.name)
       };
     };   
 
@@ -79,6 +76,17 @@ class App extends React.Component {
         else alert('Quiz zawiera zestaw pytań z historii. Mam nadzieję, że baza pytań będzie stopniowo uzupełniana. Autorką pytań jest Barbara Felicka')
 
   }
+
+  handleButtonReset=()=>{
+    this.setState({
+      questions: [],
+      corectCounter: 0,
+      uncorectCounter: 0,
+      answerCounter: 0,
+      subject: '',
+      title: ''
+    })
+  }
   render() { 
     const copyQuestions = this.state.questions;
    /*  console.log(copyQuestions); */
@@ -90,14 +98,14 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
-        <div className="header"><Header title={this.state.title} message = {this.handleOnMouse}/>
-        <Menu subject={this.handleButtonMenu}/>
+        <div className="header"><Header title={this.state.title}/>
+        {this.state.title && <Menu reset={this.handleButtonReset}/>}
         {subject && this.GetData()}
         <div className='corectCounter'>{`odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>
         </div> 
       <div className="wraper">
       <div className="header"></div>
-      <div className='quiz'>{quiz}</div>
+      {this.state.title ? <div className='quiz'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
       {/* <div className='uncorectCounter'>{this.state.uncorectCounter}</div> */}
       </div>
       </React.Fragment>

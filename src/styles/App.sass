@@ -31,10 +31,12 @@ body
         div.menu
             position: absolute
             right: 30px
+            top: 10px
             button
                 width: 100px
                 height: 50px
                 font-size: 15px
+                text-transform: uppercase
             button:hover
                 cursor: pointer
     div.wraper
@@ -49,7 +51,7 @@ body
             background-color: lightgrey
             text-align: center
             font-size: 1em
-            padding: 10px
+            padding: 50px
             width: 50%
             p.question
                 font-size: 1em
@@ -62,7 +64,33 @@ body
                 text-align: left
             input
                 background: red
-        
+        div.description
+            margin: 10px auto
+            height: 100vh
+            text-align: center
+            font-size: 1em
+            padding: 10px
+            width: 50%
+            section
+                height: 50%
+                background-color: white
+                margin: 150px auto
+                opacity: .8
+                h2 
+                    width: 100px
+                    height: 55px
+                h2:first-letter
+                    text-transform: uppercase
+                    color: red
+                    font-weight: bolder
+                    font-size: 50px
+                h2:hover
+                    cursor: pointer
+                    font-size: 30px
+                article
+                    font-weight: bold
+                    text-align: left
+            
         div.uncorectCounter
             flex-basis: 30%
             position: fixed
