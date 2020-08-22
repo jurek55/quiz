@@ -9,7 +9,7 @@ const Description = (props) => {
                 <h2 id='fizyka' onClick={props.subject}>fizyka</h2>
                 <article>Pytania z fizyki ogólnej o różnym stopniu trudności. Jerzy Kunicki</article>
                 <h2 id='żeglarstwo' onClick={props.subject}>żeglarstwo</h2>
-                <article>Pytania z bazy pytań PZŻ na egzamin JSM. Odpowiedzi bez gwarancji zbieżności z kluczem egzaminacyjnym. Poprawne odpowiedzi zostały zaznaczone w czasie przygotowywania się do - zdanego - egzaminu.</article>
+                <article>Pytania z bazy pytań PZŻ na egzamin JSM. Odpowiedzi bez gwarancji zbieżności z kluczem egzaminacyjnym. Poprawne odpowiedzi zostały zaznaczone w czasie przygotowywania się do - zdanego - egzaminu. Możesz pomóc w korektach odpowiedzi przesyłając swoje uwagi na adres: <p style={{color: 'blue', textAlign: 'center'}}>jerzy.kunicki@gmail.com</p></article>
             </section>
         </div>
      );
