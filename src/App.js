@@ -92,20 +92,19 @@ class App extends React.Component {
    /*  console.log(copyQuestions); */
    console.log(this.state.subject);
     const quiz = copyQuestions.map((item) => {
-      return (<div key={item.id}><p className='question'>{`${item.id+1}. ${item.pytanie}`}</p><p className='answer'><input type='radio' name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input><label>{item.answers[0]}</label></p><p className='answer'><input type='radio' name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input><label>{item.answers[1]}</label></p><p className='answer'><input type='radio'  name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input><label>{item.answers[2]}</label></p></div>) 
+      return (<div key={item.id} className='quiz'><p className='question'>{`${item.id+1}. ${item.pytanie}`}</p><p className='answer'><input type='radio' name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input><label>{item.answers[0]}</label></p><p className='answer'><input type='radio' name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input><label>{item.answers[1]}</label></p><p className='answer'><input type='radio'  name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input><label>{item.answers[2]}</label></p></div>) 
     });
     const subject = this.state.subject;
     
     return ( 
       <React.Fragment>
-      <div className="header"><Header title={this.state.title}/></div> 
-      {this.state.title && <Menu reset={this.handleButtonReset}/>}
-      {this.state.title && <div className='corectCounter'>{`Twój wynik: odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>}
-      {subject && this.GetData()}
-      <div className="wraper">
-      {this.state.title ? <div className='quiz'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
-      {/* <div className='uncorectCounter'>{this.state.uncorectCounter}</div> */}
-      </div>
+        <div className="wraper">
+          <div className="header"><Header title={this.state.title}/></div> 
+          {this.state.title && <Menu reset={this.handleButtonReset}/>}
+          {this.state.title && <div className='corectCounter'>{`Twój wynik: odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>}
+          {subject && this.GetData()}
+          {this.state.title ?<div className='quizWraper'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
+        </div>
       </React.Fragment>
      );
   }
