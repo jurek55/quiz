@@ -68,14 +68,14 @@ class App extends React.Component {
       subject: press
     })
   }
-  handleOnMouse=()=>{
+  /* handleOnMouse=()=>{
     if (this.state.title==='żeglarstwo')
        alert('Quiz zawiera pytania z bazy na egzamin JSM (rok 2018). Baza jest w trakcie stopniowego uzupełniania. Nie gwarantuję, że wskazane poprawne odpowiedzi dokładnie odzwierciedlają klucz egzaminacyjny, zostały one zaznaczone podczas przygotowania do zdanego egzaminu');
       else if (this.state.title==='fizyka')
       alert('Quiz zawiera zestaw pytań z fizyki ogólnej o różnym stopniu trudności. Autorem pytań jest Jerzy Kunicki');
         else alert('Quiz zawiera zestaw pytań z historii. Mam nadzieję, że baza pytań będzie stopniowo uzupełniana. Autorką pytań jest Barbara Felicka')
 
-  }
+  } */
 
   handleButtonReset=()=>{
     this.setState({

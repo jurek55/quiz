@@ -4,7 +4,16 @@ body {
   padding: 0;
 }
 
-body div.header {
+body div.wraper {
+  margin: 0 auto;
+  width: 100%;
+  min-width: 300px;
+  min-height: 100vh;
+  background-image: url("../img/tlo.jpg");
+  background-position: center;
+}
+
+body div.wraper div.header {
   text-align: center;
   text-transform: uppercase;
   position: fixed;
@@ -12,41 +21,35 @@ body div.header {
   left: 0;
   width: 100%;
   background: #CCCCFF;
+  z-index: 1;
 }
 
-body div.corectCounter {
-  /*width: 20%*/
+body div.wraper div.corectCounter {
   min-width: 250px;
   position: fixed;
   top: 15px;
   left: 50px;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 20px;
+  z-index: 1;
 }
 
-body div.menu {
+body div.wraper div.menu {
   position: fixed;
   right: 100px;
   top: 10px;
+  z-index: 1;
 }
 
-body div.menu button {
+body div.wraper div.menu button {
   width: 100px;
   height: 50px;
   font-size: 15px;
   text-transform: uppercase;
 }
 
-body div.menu button:hover {
+body div.wraper div.menu button:hover {
   cursor: pointer;
-}
-
-body div.wraper {
-  padding: 0px 0;
-  width: 100%;
-  min-height: 100vh;
-  background-image: url("../img/tlo.jpg");
-  background-position: center;
 }
 
 body div.wraper div.quizWraper {
@@ -59,7 +62,7 @@ body div.wraper div.quiz {
   text-align: center;
   font-size: 1em;
   width: 50%;
-  padding: 3px;
+  padding: 20px;
   border-bottom: 1px solid white;
 }
 
@@ -68,6 +71,7 @@ body div.wraper div.quiz p.question {
   text-align: left;
   text-transform: uppercase;
   font-weight: bold;
+  padding: 10px;
 }
 
 body div.wraper div.quiz p.answer {
@@ -76,25 +80,28 @@ body div.wraper div.quiz p.answer {
 }
 
 body div.wraper div.description {
-  margin: 0 auto;
+  width: 50%;
+  margin: 0px auto;
   text-align: center;
   font-size: 1em;
-  padding: 10px;
-  width: 50%;
+  padding: 150px;
 }
 
 body div.wraper div.description section {
+  width: 100%;
   height: 50%;
   background-color: white;
-  margin: 150px auto;
+  margin: 0px auto;
   padding: 10px;
   opacity: .7;
 }
 
 body div.wraper div.description section h2 {
-  width: 100px;
+  margin: 0 auto;
+  width: 100%;
   height: 55px;
   transition: .3s;
+  text-align: left;
 }
 
 body div.wraper div.description section h2:first-letter {
@@ -110,13 +117,53 @@ body div.wraper div.description section h2:hover {
 }
 
 body div.wraper div.description section article {
+  margin: 10px auto;
   font-weight: bold;
   text-align: left;
 }
 
-body div.wraper div.uncorectCounter {
-  flex-basis: 30%;
-  position: fixed;
-  background: yellow;
-  right: 200px;
+@media (max-width: 1174px) {
+  body div.wraper div.corectCounter {
+    max-width: 150px;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    text-align: center;
+    font-size: 15px;
+    background-color: blue;
+    color: white;
+  }
+}
+
+@media (max-width: 560px) {
+  body div.wraper div.quizWraper {
+    width: 100%;
+  }
+  body div.wraper div.quizWraper div.quiz {
+    width: 100%;
+  }
+  body div.wraper div.menu {
+    position: fixed;
+    right: 0px;
+    top: 10px;
+  }
+  body div.wraper div.menu button {
+    width: 60px;
+    height: 40px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  body div.wraper div.description {
+    width: 100%;
+    min-width: 300px;
+    margin: 0 auto;
+  }
+  body div.wraper div.description section {
+    min-width: 300px;
+    background-color: yellow;
+  }
+  body div.wraper div.description section article {
+    font-weight: bold;
+    text-align: left;
+  }
 }
