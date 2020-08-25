@@ -98,12 +98,13 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
+        
         <div className="wraper">
-          <div className="header"><Header title={this.state.title}/></div> 
+         <div className="header"><Header title={this.state.title}/></div> 
           {this.state.title && <Menu reset={this.handleButtonReset}/>}
           {this.state.title && <div className='corectCounter'>{`Twój wynik: odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>}
           {subject && this.GetData()}
-          {this.state.title ?<div className='quizWraper'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
+          {this.state.title  ? <div className='quizWraper'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
         </div>
       </React.Fragment>
      );

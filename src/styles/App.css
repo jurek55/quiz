@@ -2,12 +2,14 @@ body {
   font-size: 18px;
   margin: 0;
   padding: 0;
+  background-color: yellow;
 }
 
 body div.wraper {
-  margin: 0 auto;
-  width: 100%;
-  min-width: 300px;
+  box-sizing: border-box;
+  position: absolute;
+  min-width: 100%;
+  margin-top: 0;
   min-height: 100vh;
   background-image: url("../img/tlo.jpg");
   background-position: center;
@@ -22,6 +24,11 @@ body div.wraper div.header {
   width: 100%;
   background: #CCCCFF;
   z-index: 1;
+}
+
+body div.wraper div.header h3 p {
+  text-align: center;
+  min-width: 200px;
 }
 
 body div.wraper div.corectCounter {
@@ -79,45 +86,50 @@ body div.wraper div.quiz p.answer {
   text-align: left;
 }
 
-body div.wraper div.description {
-  width: 50%;
-  margin: 0px auto;
+body div.wraper div.quiz p.answer div.description {
+  position: relative;
+  width: 60%;
+  margin: 80px auto;
   text-align: center;
   font-size: 1em;
-  padding: 150px;
 }
 
-body div.wraper div.description section {
-  width: 100%;
-  height: 50%;
+body div.wraper div.description {
+  position: relative;
+  width: 60%;
+  margin: 80px auto;
+  text-align: center;
+  font-size: 1em;
+}
+
+body div.wraper div.description div.section {
+  margin: 0 auto;
+  padding: 15px;
   background-color: white;
-  margin: 0px auto;
-  padding: 10px;
   opacity: .7;
 }
 
-body div.wraper div.description section h2 {
-  margin: 0 auto;
-  width: 100%;
-  height: 55px;
+body div.wraper div.description div.section h2 {
+  height: 60px;
+  margin: 25px auto;
   transition: .3s;
   text-align: left;
 }
 
-body div.wraper div.description section h2:first-letter {
+body div.wraper div.description div.section h2:first-letter {
   text-transform: uppercase;
   color: red;
   font-weight: bolder;
   font-size: 50px;
 }
 
-body div.wraper div.description section h2:hover {
+body div.wraper div.description div.section h2:hover {
   cursor: pointer;
   font-size: 30px;
 }
 
-body div.wraper div.description section article {
-  margin: 10px auto;
+body div.wraper div.description div.section div.article {
+  width: 100%;
   font-weight: bold;
   text-align: left;
 }
@@ -136,9 +148,6 @@ body div.wraper div.description section article {
 }
 
 @media (max-width: 560px) {
-  body div.wraper div.quizWraper {
-    width: 100%;
-  }
   body div.wraper div.quizWraper div.quiz {
     width: 100%;
   }
@@ -154,16 +163,24 @@ body div.wraper div.description section article {
     text-transform: uppercase;
   }
   body div.wraper div.description {
+    position: relative;
     width: 100%;
-    min-width: 300px;
-    margin: 0 auto;
+    margin: 25px auto;
+    text-align: center;
+    font-size: 1em;
+    min-height: 100vh;
   }
-  body div.wraper div.description section {
-    min-width: 300px;
-    background-color: yellow;
+  body div.wraper div.description div.section {
+    margin: 0px auto;
+    padding: 15px;
+    background-color: white;
+    opacity: .7;
+    min-height: 100vh;
   }
-  body div.wraper div.description section article {
-    font-weight: bold;
-    text-align: left;
+  body div.wraper div.description div.section h2:first-letter {
+    text-transform: uppercase;
+    color: red;
+    font-weight: bolder;
+    font-size: 50px;
   }
 }
