@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import Description from './components/Description';
 
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -98,7 +99,6 @@ class App extends React.Component {
     
     return ( 
       <React.Fragment>
-        
         <div className="wraper">
          <div className="header"><Header title={this.state.title}/></div> 
           {this.state.title && <Menu reset={this.handleButtonReset}/>}
