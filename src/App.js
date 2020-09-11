@@ -4,6 +4,11 @@ import Header from './components/Header';
 import Menu from './components/Menu';
 import Description from './components/Description';
 import kotwicaa from './img/kotwicaa.jpg';
+import kotwicab from './img/kotwicab.jpg';
+import kotwicac from './img/kotwicac.jpg';
+import kretlika from './img/kretlikasmall.jpg';
+import kretlikb from './img/kretlikbsmall.jpg';
+import kretlikc from './img/kretlikcsmall.jpg';
 
 class App extends React.Component {
   
