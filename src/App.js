@@ -3,7 +3,7 @@ import './styles/App.min.css';
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Description from './components/Description';
-
+import kotwicaa from './img/kotwicaa.jpg';
 
 class App extends React.Component {
   
@@ -84,13 +84,13 @@ class App extends React.Component {
       <div key={item.id} className='quiz'>
         <p className='question'>{`${item.id+1}. ${item.pytanie}`}</p>
         <p className='answer'><input type='radio' id={item.answers[0]} name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input>
-          {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <img src={item.answers[0]} alt='pica'/>}
+          {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <img src={item.answers[0]} alt='picture_a'/>}
         </p>
         <p className='answer'><input type='radio' id={item.answers[1]} name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input>
-            {item.typ === 'tekst' ? <label htmlFor={item.answers[1]}>{item.answers[1]}</label> : <img src={item.answers[1]} alt='picb'/> }
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[1]}>{item.answers[1]}</label> : <img src={item.answers[1]} alt='picture_b'/> }
         </p>
         <p className='answer'><input type='radio' id={item.answers[2]} name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input>
-            {item.typ === 'tekst' ? <label htmlFor={item.answers[2]}>{item.answers[2]}</label> : <img src={item.answers[2]} alt='picc'/> }
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[2]}>{item.answers[2]}</label> : <img src={item.answers[2]} alt='picture_c'/> }
         </p>
       </div>)
     });
