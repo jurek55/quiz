@@ -89,13 +89,13 @@ class App extends React.Component {
       <div key={item.id} className='quiz'>
         <p className='question'>{`${item.id+1}. ${item.pytanie}`}</p>
         <p className='answer'><input type='radio' id={item.answers[0]} name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input>
-          {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <img src={item.answers[0]} alt='picture_a'/>}
+          {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <label htmlFor={item.answers[0]}><img src={item.answers[0]} alt='picture_a'/></label>}
         </p>
         <p className='answer'><input type='radio' id={item.answers[1]} name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input>
-            {item.typ === 'tekst' ? <label htmlFor={item.answers[1]}>{item.answers[1]}</label> : <img src={item.answers[1]} alt='picture_b'/> }
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[1]}>{item.answers[1]}</label> : <label htmlFor={item.answers[1]}><img src={item.answers[1]} alt='picture_b'/></label> }
         </p>
         <p className='answer'><input type='radio' id={item.answers[2]} name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input>
-            {item.typ === 'tekst' ? <label htmlFor={item.answers[2]}>{item.answers[2]}</label> : <img src={item.answers[2]} alt='picture_c'/> }
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[2]}>{item.answers[2]}</label> : <label htmlFor={item.answers[2]}><img src={item.answers[2]} alt='picture_c'/></label> }
         </p>
       </div>)
     });
