@@ -9,6 +9,7 @@ import kotwicac from './img/kotwicac.jpg';
 import kretlika from './img/kretlikasmall.jpg';
 import kretlikb from './img/kretlikbsmall.jpg';
 import kretlikc from './img/kretlikcsmall.jpg';
+import kuter from './img/kuter.jpg';
 
 class App extends React.Component {
   
@@ -26,7 +27,7 @@ class App extends React.Component {
   GetData = ()=>{
     
      const xhr = new XMLHttpRequest();
-     xhr.open('POST', 'https://api.jkunicki.pl/quiz/index_test.php', true);
+     xhr.open('POST', 'https://api.jkunicki.pl/quiz/index_test1.php', true);
      xhr.send(JSON.stringify(this.state.subject));
      xhr.onload=()=>{
       console.log(xhr.status);
@@ -88,6 +89,7 @@ class App extends React.Component {
       return (
       <div key={item.id} className='quiz'>
         <p className='question'>{`${item.id+1}. ${item.pytanie}`}</p>
+        {item.obrazek !=='' && <img src={item.obrazek} alt='question'/>}
         <p className='answer'><input type='radio' id={item.answers[0]} name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input>
           {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <label htmlFor={item.answers[0]}><img src={item.answers[0]} alt='picture_a'/></label>}
         </p>
@@ -100,7 +102,7 @@ class App extends React.Component {
       </div>)
     });
     const subject = this.state.subject;
-    
+    console.log(this.state.questions);
     return ( 
       <React.Fragment>
         
@@ -112,7 +114,6 @@ class App extends React.Component {
           {subject && this.GetData()}
           {!this.state.title  && <Description subject={this.handleButtonMenu} />}
           {this.state.title && <div className='quizWraper'>{quiz}</div>}
-          
         </div>
         
       </React.Fragment>
