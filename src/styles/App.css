@@ -86,6 +86,10 @@ body div.wraper div.quiz p.answer {
   text-align: left;
 }
 
+body div.wraper div.quiz p.answer label:hover {
+  cursor: pointer;
+}
+
 body div.wraper div.quiz p.answer div.description {
   position: relative;
   width: 60%;

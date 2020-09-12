@@ -3,13 +3,20 @@ import './styles/App.min.css';
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Description from './components/Description';
-
+/* import kotwicaa from './img/kotwicaa.jpg';
+import kotwicab from './img/kotwicab.jpg';
+import kotwicac from './img/kotwicac.jpg';
+import kretlika from './img/kretlikasmall.jpg';
+import kretlikb from './img/kretlikbsmall.jpg';
+import kretlikc from './img/kretlikcsmall.jpg';
+import kuter from './img/kuter.jpg';
+import plawa from './img/plawa.jpg';
+import kotwiczenie from './img/kotwiczenie.jpg'; */
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
+  
+    state = { 
       questions: [],
       corectCounter: 0,
       uncorectCounter: 0,
@@ -18,12 +25,12 @@ class App extends React.Component {
       title: ''
      
      }
-    }
+    
     
   GetData = ()=>{
     
      const xhr = new XMLHttpRequest();
-     xhr.open('POST', 'https://api.jkunicki.pl/quiz/', true);
+     xhr.open('POST', 'https://api.jkunicki.pl/quiz/index_test1.php', true);
      xhr.send(JSON.stringify(this.state.subject));
      xhr.onload=()=>{
       console.log(xhr.status);
@@ -44,7 +51,6 @@ class App extends React.Component {
   handleCheck = (event) =>{
     
     if (event.target.value===this.state.questions[event.target.name].corectAns){
-        console.log('ok');
         this.setState({
           corectCounter: this.state.corectCounter+1,
           answerCounter: this.state.answerCounter+1
@@ -69,14 +75,6 @@ class App extends React.Component {
       subject: press
     })
   }
-  /* handleOnMouse=()=>{
-    if (this.state.title==='żeglarstwo')
-       alert('Quiz zawiera pytania z bazy na egzamin JSM (rok 2018). Baza jest w trakcie stopniowego uzupełniania. Nie gwarantuję, że wskazane poprawne odpowiedzi dokładnie odzwierciedlają klucz egzaminacyjny, zostały one zaznaczone podczas przygotowania do zdanego egzaminu');
-      else if (this.state.title==='fizyka')
-      alert('Quiz zawiera zestaw pytań z fizyki ogólnej o różnym stopniu trudności. Autorem pytań jest Jerzy Kunicki');
-        else alert('Quiz zawiera zestaw pytań z historii. Mam nadzieję, że baza pytań będzie stopniowo uzupełniana. Autorką pytań jest Barbara Felicka')
-
-  } */
 
   handleButtonReset=()=>{
     this.setState({
@@ -90,22 +88,37 @@ class App extends React.Component {
   }
   render() { 
     const copyQuestions = this.state.questions;
-   /*  console.log(copyQuestions); */
-   console.log(this.state.subject);
     const quiz = copyQuestions.map((item) => {
-      return (<div key={item.id} className='quiz'><p className='question'>{`${item.id+1}. ${item.pytanie}`}</p><p className='answer'><input type='radio' name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input><label>{item.answers[0]}</label></p><p className='answer'><input type='radio' name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input><label>{item.answers[1]}</label></p><p className='answer'><input type='radio'  name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input><label>{item.answers[2]}</label></p></div>) 
+      return (
+      <div key={item.id} className='quiz'>
+        <p className='question'>{`${item.id+1}. ${item.pytanie}`}</p>
+        {item.obrazek !=='' && <img src={item.obrazek} alt='question'/>}
+        <p className='answer'><input type='radio' id={item.answers[0]} name={item.id} value={item.answers[0]} onChange={this.handleCheck}></input>
+          {item.typ === 'tekst' ? <label htmlFor={item.answers[0]}>{item.answers[0]}</label> : <label htmlFor={item.answers[0]}><img src={item.answers[0]} alt='picture_a'/></label>}
+        </p>
+        <p className='answer'><input type='radio' id={item.answers[1]} name={item.id} value={item.answers[1]} onChange={this.handleCheck}></input>
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[1]}>{item.answers[1]}</label> : <label htmlFor={item.answers[1]}><img src={item.answers[1]} alt='picture_b'/></label> }
+        </p>
+        <p className='answer'><input type='radio' id={item.answers[2]} name={item.id} value={item.answers[2]} onChange={this.handleCheck}></input>
+            {item.typ === 'tekst' ? <label htmlFor={item.answers[2]}>{item.answers[2]}</label> : <label htmlFor={item.answers[2]}><img src={item.answers[2]} alt='picture_c'/></label> }
+        </p>
+      </div>)
     });
     const subject = this.state.subject;
-    
+    console.log(this.state.questions);
     return ( 
       <React.Fragment>
         <div className="wraper">
+        
          <div className="header"><Header title={this.state.title}/></div> 
           {this.state.title && <Menu reset={this.handleButtonReset}/>}
           {this.state.title && <div className='corectCounter'>{`Twój wynik: odpowiedzi poprawnych ${this.state.corectCounter} / ${this.state.answerCounter}`}</div>}
           {subject && this.GetData()}
-          {this.state.title  ? <div className='quizWraper'>{quiz}</div> : <Description subject={this.handleButtonMenu} />}
+          {!this.state.title  && <Description subject={this.handleButtonMenu} />}
+          {this.state.title && <div className='quizWraper'>{quiz}</div>}
+         
         </div>
+        
       </React.Fragment>
      );
   }
