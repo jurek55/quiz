@@ -3,7 +3,7 @@ import './styles/App.min.css';
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Description from './components/Description';
-import kotwicaa from './img/kotwicaa.jpg';
+/* import kotwicaa from './img/kotwicaa.jpg';
 import kotwicab from './img/kotwicab.jpg';
 import kotwicac from './img/kotwicac.jpg';
 import kretlika from './img/kretlikasmall.jpg';
@@ -11,7 +11,7 @@ import kretlikb from './img/kretlikbsmall.jpg';
 import kretlikc from './img/kretlikcsmall.jpg';
 import kuter from './img/kuter.jpg';
 import plawa from './img/plawa.jpg';
-import kotwiczenie from './img/kotwiczenie.jpg';
+import kotwiczenie from './img/kotwiczenie.jpg'; */
 
 class App extends React.Component {
   
