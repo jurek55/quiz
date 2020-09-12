@@ -116,7 +116,7 @@ class App extends React.Component {
           {subject && this.GetData()}
           {!this.state.title  && <Description subject={this.handleButtonMenu} />}
           {this.state.title && <div className='quizWraper'>{quiz}</div>}
-         <img src={kotwiczenie} alt="kot"/>
+         
         </div>
         
       </React.Fragment>
