@@ -10,6 +10,7 @@ import kretlika from './img/kretlikasmall.jpg';
 import kretlikb from './img/kretlikbsmall.jpg';
 import kretlikc from './img/kretlikcsmall.jpg';
 import kuter from './img/kuter.jpg';
+import plawa from './img/plawa.jpg';
 
 class App extends React.Component {
   
@@ -114,6 +115,7 @@ class App extends React.Component {
           {subject && this.GetData()}
           {!this.state.title  && <Description subject={this.handleButtonMenu} />}
           {this.state.title && <div className='quizWraper'>{quiz}</div>}
+         
         </div>
         
       </React.Fragment>
